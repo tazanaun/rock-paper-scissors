@@ -4,77 +4,19 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<script>
-			function getComputerChoice() {
-				randomInt = (max) => Math.floor(Math.random() * max);
-				let num = randomInt(3);
-				if (num == 0) {
-					console.log("computer picked rock");
-					return "rock";
-				} else if (num == 1) {
-					console.log("computer picked paper");
-					return "paper";
-				} else {
-					console.log("computer picked scissors");
-					return "scissors";
-				}
-			}
-
-			function playGame() {
-				let humanScore = 0;
-				let computerScore = 0;
-				function playRound(humanChoice, computerChoice) {
-					if (humanChoice == computerChoice) {
-						return NaN;
-					} else if (humanChoice == "rock") {
-						if (computerChoice == "paper") {
-							computerScore++;
-						} else {
-							humanScore++;
-						}
-					} else if (humanChoice == "paper") {
-						if (computerChoice == "scissors") {
-							computerScore++;
-						} else {
-							humanScore++;
-						}
-					} else {
-						if (computerChoice == "rock") {
-							computerScore++;
-						} else {
-							humanScore++;
-						}
-					}
-				}
-				rockBtn = document.createElement("button");
-				paperBtn = document.createElement("button");
-				scissorsBtn = document.createElement("button");
-
-				rockBtn.addEventListener(
-					"click",
-					playRound("Rock", getComputerChoice()),
-				);
-				paperBtn.addEventListener(
-					"click",
-					playRound("paper", getComputerChoice()),
-				);
-				scissorsBtn.addEventListener(
-					"click",
-					playRound("scissors", getComputerChoice()),
-				);
-				document.appendChild(rockBtn);
-
-				results = document.createElement("div");
-
-				console.log(`You scored ${humanScore}`);
-				console.log(`Computer Scored ${computerScore}`);
-			}
-			playGame();
-		</script>
+		<script src="script.js" defer></script>
 	</head>
 	<body>
-		<button class="rock">rock</button>
-		<button class="paper">paper</button>
-		<button class="scissors">scissors</button>
+		<div class="buttons">
+			<button class="rock">rock</button>
+			<button class="paper">paper</button>
+			<button class="scissors">scissors</button>
+		</div>
+		<div class="display">
+			<p class="human-choice"></p>
+			<p class="computer-choice"></p>
+			<p class="human-score"></p>
+			<p class="computer-score"></p>
+		</div>
 	</body>
 </html>
