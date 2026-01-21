@@ -1,66 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script>
-      function getComputerChoice() {
-        randomInt = (max) => Math.floor(Math.random() * max);
-        let num = randomInt(3);
-        if (num == 0) {
-          console.log("computer picked rock");
-          return "rock";
-        } else if (num == 1) {
-          console.log("computer picked paper");
-          return "paper";
-        } else {
-          console.log("computer picked scissors");
-          return "scissors";
-        }
-      }
-      function getHumanChoice() {
-        let humanChoice = prompt("rock, paper scissors?").toLowerCase();
-        console.log("You picked " + humanChoice);
-        return humanChoice;
-      }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			function getComputerChoice() {
+				randomInt = (max) => Math.floor(Math.random() * max);
+				let num = randomInt(3);
+				if (num == 0) {
+					console.log("computer picked rock");
+					return "rock";
+				} else if (num == 1) {
+					console.log("computer picked paper");
+					return "paper";
+				} else {
+					console.log("computer picked scissors");
+					return "scissors";
+				}
+			}
 
-      function playGame() {
-        let humanScore = 0;
-        let computerScore = 0;
-        function playRound(humanChoice, computerChoice) {
-          if (humanChoice == computerChoice) {
-            return NaN;
-          } else if (humanChoice == "rock") {
-            if (computerChoice == "paper") {
-              computerScore++;
-            } else {
-              humanScore++;
-            }
-          } else if (humanChoice == "paper") {
-            if (computerChoice == "scissors") {
-              computerScore++;
-            } else {
-              humanScore++;
-            }
-          } else {
-            if (computerChoice == "rock") {
-              computerScore++;
-            } else {
-              humanScore++;
-            }
-          }
-        }
-        playRound(getHumanChoice(), getComputerChoice());
-        playRound(getHumanChoice(), getComputerChoice());
-        playRound(getHumanChoice(), getComputerChoice());
-        playRound(getHumanChoice(), getComputerChoice());
-        playRound(getHumanChoice(), getComputerChoice());
 
-        console.log(`You scored ${humanScore}`);
-        console.log(`Computer Scored ${computerScore}`);
-      }
-    </script>
-  </head>
-  <body></body>
+			function playGame() {
+				let humanScore = 0;
+				let computerScore = 0;
+				function playRound(humanChoice, computerChoice) {
+					if (humanChoice == computerChoice) {
+						return NaN;
+					} else if (humanChoice == "rock") {
+						if (computerChoice == "paper") {
+							computerScore++;
+						} else {
+							humanScore++;
+						}
+					} else if (humanChoice == "paper") {
+						if (computerChoice == "scissors") {
+							computerScore++;
+						} else {
+							humanScore++;
+						}
+					} else {
+						if (computerChoice == "rock") {
+							computerScore++;
+						} else {
+							humanScore++;
+						}
+					}
+				}
+				rockBtn = document.createElement("button");
+				paperBtn = document.createElement("button");
+				scissorsBtn = document.createElement("button");
+
+        rockBtn.addEventListener("click", playRound("Rock"))
+
+				console.log(`You scored ${humanScore}`);
+				console.log(`Computer Scored ${computerScore}`);
+			}
+			playGame();
+		</script>
+	</head>
+	<body></body>
 </html>
