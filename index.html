@@ -50,14 +50,17 @@
 				paperBtn = document.createElement("button");
 				scissorsBtn = document.createElement("button");
 
-				rockBtn.addEventListener("click", playRound("Rock", getComputerChoice));
+				rockBtn.addEventListener(
+					"click",
+					playRound("Rock", getComputerChoice()),
+				);
 				paperBtn.addEventListener(
 					"click",
-					playRound("paper", getComputerChoice),
+					playRound("paper", getComputerChoice()),
 				);
 				scissorsBtn.addEventListener(
 					"click",
-					playRound("scizzors", getComputerChoice),
+					playRound("scissors", getComputerChoice()),
 				);
 
 				results = document.createElement("div");
