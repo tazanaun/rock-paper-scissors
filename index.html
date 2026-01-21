@@ -20,7 +20,6 @@
 				}
 			}
 
-
 			function playGame() {
 				let humanScore = 0;
 				let computerScore = 0;
@@ -51,7 +50,17 @@
 				paperBtn = document.createElement("button");
 				scissorsBtn = document.createElement("button");
 
-        rockBtn.addEventListener("click", playRound("Rock"))
+				rockBtn.addEventListener("click", playRound("Rock", getComputerChoice));
+				paperBtn.addEventListener(
+					"click",
+					playRound("paper", getComputerChoice),
+				);
+				scissorsBtn.addEventListener(
+					"click",
+					playRound("scizzors", getComputerChoice),
+				);
+
+				results = document.createElement("div");
 
 				console.log(`You scored ${humanScore}`);
 				console.log(`Computer Scored ${computerScore}`);
